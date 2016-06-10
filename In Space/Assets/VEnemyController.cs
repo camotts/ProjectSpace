@@ -23,7 +23,7 @@ public class VEnemyController : EnemyShip {
             foreach (var barrel in Barrels)
             {
                 var clone = Instantiate(Bullet, barrel.position, barrel.rotation) as GameObject;
-                clone.GetComponent<Rigidbody2D>().AddForce(clone.transform.up * 300);
+                clone.GetComponent<Rigidbody2D>().AddForce(barrel.up * 300);
             }
             ReloadTimer = 0;
         }

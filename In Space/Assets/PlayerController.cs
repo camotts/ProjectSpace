@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
                     clone = Instantiate(Bullet, Barrel.transform.position, Bullet.transform.rotation) as GameObject;
                 }
 
-                clone.GetComponent<Rigidbody2D>().AddForce(new Vector2(400, 0));
+                clone.GetComponent<Rigidbody2D>().AddForce(Barrel.up * 400);
                 ReloadTimer = 0;
                 ScoreController.ShotsFired++;
             }
@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
     {
         IsDead = !IsDead;
         GetComponent<Renderer>().enabled = !GetComponent<Renderer>().enabled;
-        foreach (var col in GetComponents<Collider>())
+        foreach (var col in GetComponents<Collider2D>())
         {
             col.enabled = !col.enabled;
         }

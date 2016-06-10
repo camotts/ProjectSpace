@@ -9,6 +9,7 @@ public class EnemyShip : MonoBehaviour
 {
     public int Points = 100;
     public Health Health;
+    public float Speed = 1;
     protected Vector2 GoTo;
     protected Renderer Render;
     protected bool CanFire;
@@ -22,7 +23,7 @@ public class EnemyShip : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.position = Vector2.Lerp(transform.position, GoTo, 1 / (20 * (Vector3.Distance(gameObject.transform.position, GoTo))));
+        transform.position = Vector2.Lerp(transform.position, GoTo, (1 / (20 * (Vector3.Distance(gameObject.transform.position, GoTo))))*Speed);
     }
 
     void OnTriggerEnter2D(Collider2D col)

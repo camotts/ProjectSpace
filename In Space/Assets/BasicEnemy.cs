@@ -24,7 +24,7 @@ public class BasicEnemy : EnemyShip
         if (Reload <= ReloadTimer)
         {
             var clone = Instantiate(Bullet, Barrel.position, transform.rotation) as GameObject;
-            clone.GetComponent<Rigidbody2D>().AddForce(new Vector2(-300, 0));
+            clone.GetComponent<Rigidbody2D>().AddForce(Barrel.up * 300);
             ReloadTimer = 0;
         }
         else
